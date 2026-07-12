@@ -51,25 +51,53 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // }
 // let foundManufacturer: string|undefined = manufacturers.find(findManufacturer);
 // console.log(foundManufacturer);
-let arr = [
-    { "id": "sam", "check": true },
-    { "id": "ram", "check": false },
-    { "id": "saam", "check": true },
-    { "id": "raam", "check": false }
-];
-let res = arr
-    .filter(x => x.check == true)
-    .map(x => x.id);
-console.log(res);
-const mobilePriceArray = [25000, 15499, 27500, 18799];
-const incrementedPriceArr = mobilePriceArray.filter(function (number) {
-    return number % 2 !== 0;
-}).map(function (number) {
-    return number + 400;
-});
-console.log(incrementedPriceArr); // => [15899,19199]
-let subjects = ["Mathematics-70", "Science-67", "English-88", "Geography-62", "ComputerSc-55"];
-subjects.map(value => value.toUpperCase()) // converts all the elements to upper case
-    .filter(subjects => parseInt(subjects.substr(-2, 2)) > 65) // filters only the subjects having score greater than 65
-    .forEach(sub => console.log(sub)); // displays all the filtered subjects in console
+// let arr:{id:string,check:boolean}[]=[
+//     {"id":"sam","check":true},
+//     {"id":"ram","check":false},
+//     {"id":"saam","check":true},
+//     {"id":"raam","check":false}
+// ];
+// let res:string[]=arr
+//     .filter(x=>x.check==true)
+//     .map(x=>x.id);
+// console.log(res);
+// const mobilePriceArray: number[] = [25000, 15499, 27500, 18799];
+// const incrementedPriceArr =
+//     mobilePriceArray.filter(
+//         function (number) {
+//             return number % 2 !== 0
+//         }).map(function (number) {
+//             return number + 400
+//         });
+// console.log(incrementedPriceArr); // => [15899,19199]
+// let subjects: string[] = ["Mathematics-70", "Science-67", "English-88", "Geography-62", "ComputerSc-55"];
+// subjects.map(value => value.toUpperCase()) // converts all the elements to upper case
+//     .filter(subjects => parseInt(subjects.substr(-2, 2)) > 65) // filters only the subjects having score greater than 65
+//     .forEach(sub => console.log(sub)); // displays all the filtered subjects in console
+//  let subs:string[]=["Mathematics-70", "Science-67", "English-88", "Geography-62", "ComputerSc-55"];
+//  subs
+//     .map(x=>x.toUpperCase())
+//     .filter(x=>parseInt(x.slice(-2))>65)
+//     .forEach(x=>console.log(x));
+// let result: string[] = subs
+//     .map(subject => subject.toUpperCase())
+//     .filter(subject => {
+//         let marks: number = Number(subject.split("-")[1]);
+//         return marks > 65;
+//     });
+// console.log(result);
+let nums = [105, 5, 293, 153, 17, 2, 1, 371, 95, 407];
+function isArms(x) {
+    let len = x.toString().length;
+    let sum = 0;
+    let num = x;
+    while (x > 0) {
+        let d = x % 10;
+        sum += Math.pow(d, len);
+        x = Math.floor(x / 10);
+    }
+    return num == sum;
+}
+let arms = nums.filter(isArms);
+console.log(arms);
 //# sourceMappingURL=arrays.js.map
